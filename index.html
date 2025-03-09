@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastBot - Diet-free weight loss with friends</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #000000; /* Black background */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero section */
+        .hero {
+            padding: 40px 0; /* Reduced padding to make the section smaller */
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .app-branding {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .app-logo {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+            border-radius: 12px;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 0 0 45%;
+            min-width: 300px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            color: #ffffff;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin: 20px 0 30px;
+            color: #b0b0b0;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #1E88E5; /* Blue */
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #1565C0; /* Darker blue on hover */
+        }
+        
+        .apple-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .hero-image {
+            flex: 0 0 50%;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 60%; /* Further reduced to make the iPhone image smaller */
+            height: auto;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            /* Removed box-shadow */
+        }
+        
+        /* Features section */
+        .features {
+            padding: 60px 0;
+            background-color: #000000; /* Darker black */
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .feature-item {
+            flex-basis: calc(33.333% - 30px);
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #1a1a1a; /* Dark gray */
+            border-radius: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #64B5F6; /* Light blue */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(33, 150, 243, 0.1); /* Light blue background */
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a1a1a; /* Dark gray */
+            border-radius: 50%;
+            color: #64B5F6; /* Light blue */
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #333333; /* Darker gray on hover */
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000000; /* Changed to black to remove the grey section */
+            color: #b0b0b0;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #64B5F6; /* Light blue */
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .creator {
+            margin: 20px 0;
+            color: #777;
+        }
+        
+        .creator a {
+            color: #64B5F6; /* Light blue */
+            text-decoration: none;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 991px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                flex: 100%;
+                width: 100%;
+            }
+            
+            .hero-text {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 30px 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .feature-item {
+                flex-basis: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .feature-item {
+                flex-basis: 100%;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .app-branding {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .app-logo {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero section with app screenshot -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="app-branding">
+                        <img src="images/remyLogo.png" alt="FastBot Logo" class="app-logo">
+                        <h1>FastBot</h1>
+                    </div>
+                    <p>Diet-free weight loss with friends. Track your fasting periods, get insights about your body's fat-burning state, and achieve your health goals together.</p>
+                    <a href="#" class="cta-button">
+                        <span class="apple-icon">
+                            <!-- Apple logo as symbol -->
+                            &#xF8FF;
+                        </span>
+                        Download 
+                    </a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/imagePage.png" alt="FastBot App Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Benefits</h2>
+                <p>Discover how FastBot can transform your health journey through intermittent fasting.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Diet-Free Weight Loss</h3>
+                    <p>Fasting was found to be more effective than calorie restriction at increasing fat loss while simultaneously preserving muscle tissue.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Reduce Insulin Resistance</h3>
+                    <p>Several studies have found that fasting may improve blood sugar control, which could be especially useful for those at risk of diabetes.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <h3>Increases Growth Hormone</h3>
+                    <p>Human growth hormone (HGH) is a type of protein hormone that is central to many aspects of your health like Metabolism, Weight Loss and Muscle Strength.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <h3>Insights</h3>
+                    <p>A powerful insight analyzer allows you to understand how different fasting stages improve your health and reduce body fat.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h3>Get In Shape With Friends</h3>
+                    <p>Add friends and share your data to reduce weight and body fat together by motivating each other.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💡</div>
+                    <h3>Recommendations</h3>
+                    <p>An intelligent recommendations system gives you hints on reducing weight and body fat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Links -->
+    <div class="container">
+        <div class="social-links">
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+            </a>
+            <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">What's New</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#">Press Kit</a>
+            </div>
+            <div class="creator">
+                Made by <a href="#">Chingiz Agha</a> in Sumgait
+            </div>
+            <p>&copy; 2025 FastBot. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
