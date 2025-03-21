@@ -14,7 +14,7 @@
         
         html, body {
             height: 100%;
-            overflow: hidden;
+            /* Removed overflow: hidden to allow scrolling */
         }
         
         body {
@@ -24,12 +24,13 @@
             background-color: #000000; /* Black background */
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scroll only */
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px; /* Reduced padding for small screens */
             width: 100%;
         }
         
@@ -38,6 +39,8 @@
             flex: 1;
             display: flex;
             align-items: center;
+            padding: 20px 0; /* Add some padding to prevent content touching edges */
+            min-height: 100vh; /* Use min-height instead of fixed height */
         }
         
         /* App presentation section */
@@ -46,7 +49,7 @@
             align-items: center;
             width: 100%;
             justify-content: space-between;
-            height: 100%;
+            flex-wrap: wrap; /* Allow wrapping for small screens */
         }
         
         .app-branding {
@@ -64,7 +67,8 @@
         
         .app-info {
             flex: 0 0 45%;
-            min-width: 300px;
+            min-width: 280px; /* Reduced from 300px */
+            margin-bottom: 30px;
         }
         
         .app-info h1 {
@@ -206,6 +210,44 @@
             .app-info h1 {
                 font-size: 2.5rem;
             }
+            
+            .app-image img {
+                max-width: 80%; /* Increased for better visibility */
+            }
+        }
+        
+        /* Added media query for very small screens */
+        @media (max-width: 480px) {
+            .app-info h1 {
+                font-size: 2rem;
+            }
+            
+            .app-info p {
+                font-size: 0.95rem;
+            }
+            
+            .app-logo {
+                height: 40px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .app-image img {
+                max-width: 90%;
+                max-height: 60vh;
+            }
+            
+            .footer-links a {
+                margin-right: 10px;
+                font-size: 0.8rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
         }
         
         @media (max-height: 700px) {
@@ -220,6 +262,29 @@
             .app-info p {
                 font-size: 1rem;
                 margin: 10px 0 20px;
+            }
+            
+            .main-content {
+                padding: 10px 0;
+            }
+        }
+        
+        /* Added media query for extra small screens */
+        @media (max-width: 360px) {
+            .app-info h1 {
+                font-size: 1.8rem;
+            }
+            
+            .app-branding {
+                justify-content: center;
+            }
+            
+            .app-image img {
+                max-width: 95%;
+            }
+            
+            .container {
+                padding: 0 10px;
             }
         }
     </style>
