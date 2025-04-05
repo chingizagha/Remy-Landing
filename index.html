@@ -163,6 +163,7 @@
             padding: 15px 0;
             width: 100%;
             border-top: 1px solid #222;
+            margin-top: 20px;
         }
         
         .footer-content {
@@ -283,11 +284,16 @@
             .app-presentation {
                 padding-top: 0;
             }
+            
+            .main-content {
+                padding-bottom: 80px;
+            }
         }
         
         @media (max-width: 768px) {
             .main-content {
-                padding: 10px 0;
+                padding: 10px 0 60px;
+                min-height: auto;
             }
             
             .footer-content {
@@ -303,6 +309,11 @@
             .copyright {
                 text-align: center;
                 width: 100%;
+            }
+            
+            .iphone-mockup {
+                width: min(260px, 65vw);
+                height: min(520px, 130vw);
             }
         }
         
@@ -340,8 +351,8 @@
             }
             
             .iphone-mockup {
-                width: min(240px, 65vw);
-                height: min(480px, 130vw);
+                width: min(220px, 60vw);
+                height: min(440px, 120vw);
                 border-radius: 30px;
                 padding: 10px;
             }
@@ -349,11 +360,27 @@
             .iphone-screen {
                 border-radius: 20px;
             }
+            
+            .main-content {
+                padding-bottom: 40px;
+            }
         }
         
-        @media (max-height: 700px) {
+        /* iPhone 8 Plus and similar devices */
+        @media (max-width: 414px) {
             .iphone-mockup {
-                height: min(450px, 130vw);
+                width: min(200px, 55vw);
+                height: min(400px, 110vw);
+                border-radius: 25px;
+                padding: 8px;
+            }
+            
+            .iphone-screen {
+                border-radius: 18px;
+            }
+            
+            .main-content {
+                padding-bottom: 30px;
             }
         }
         
@@ -369,8 +396,8 @@
             }
             
             .iphone-mockup {
-                width: min(200px, 60vw);
-                height: min(400px, 120vw);
+                width: min(180px, 50vw);
+                height: min(360px, 100vw);
             }
             
             .app-branding {
@@ -378,7 +405,8 @@
             }
             
             .main-content {
-                min-height: calc(100vh - 50px);
+                min-height: auto;
+                padding-bottom: 20px;
             }
         }
     </style>
