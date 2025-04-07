@@ -25,24 +25,26 @@
             background-color: #000000;
             display: flex;
             flex-direction: column;
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         /* Main content area */
         .main-content {
-            flex: 1;
+            flex: 1 0 auto; /* Changed to flex-grow and prevent shrinking */
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 60px);
             width: 100%;
             padding: 20px 0;
+            overflow: hidden;
+            margin-bottom: 30px; /* Add margin to separate from footer */
         }
         
         /* App presentation section */
@@ -53,34 +55,34 @@
             justify-content: space-between;
             flex-wrap: wrap;
             position: relative;
-            padding-top: 80px;
-        }
-        
-        .app-branding {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-        }
-        
-        .app-logo {
-            height: 60px;
-            width: auto;
-            margin-right: 15px;
-            border-radius: 12px;
         }
         
         .app-info {
             flex: 1;
             max-width: 500px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding-right: 20px;
         }
         
+        .app-branding {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        
+        .app-logo {
+            height: 80px;
+            width: auto;
+            margin-right: 15px;
+            border-radius: 12px;
+            display: block; /* Ensure logo is visible */
+        }
+        
         .app-info h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.5rem, 6vw, 4rem);
             color: #ffffff;
             letter-spacing: -0.5px;
         }
@@ -89,36 +91,15 @@
             font-size: clamp(1.5rem, 4vw, 2rem);
             font-style: italic;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
             font-weight: 300;
         }
         
         .app-info p {
             font-size: clamp(0.9rem, 2vw, 1.1rem);
-            margin: 15px 0 25px;
+            margin: 5px 0 15px;
             color: #b0b0b0;
             max-width: 450px;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: #000000;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            opacity: 0.9;
-        }
-        
-        .apple-icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
         }
         
         .app-image {
@@ -126,34 +107,59 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            max-width: 500px;
+            max-width: 550px;
         }
         
-        .iphone-mockup {
-            position: relative;
-            width: min(280px, 70vw);
-            height: min(560px, 140vw);
-            background-color: #000;
-            border-radius: 40px;
-            padding: 14px;
+        .app-screenshot {
+            max-width: 350px;
+            height: auto;
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid #333;
-            overflow: hidden;
-        }
-        
-        .iphone-screen {
-            width: 100%;
-            height: 100%;
-            border-radius: 24px;
-            overflow: hidden;
-            background-color: #fff;
-        }
-        
-        .app-gif {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
             display: block;
+            margin-bottom: 50px; /* Add spacing at the bottom of the screenshot */
+        }
+        
+        /* App Store Button */
+        .app-store-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #000000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #444;
+        }
+        
+        .app-store-button:hover {
+            opacity: 0.9;
+        }
+        
+        .app-store-button svg {
+            margin-right: 10px;
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+        
+        .app-store-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .app-store-text small {
+            font-size: 0.9rem;
+            font-weight: normal;
+            line-height: 1;
+        }
+        
+        .app-store-text span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1.5;
         }
         
         /* Footer */
@@ -163,7 +169,8 @@
             padding: 15px 0;
             width: 100%;
             border-top: 1px solid #222;
-            margin-top: 20px;
+            margin-top: auto; /* Push footer to bottom */
+            flex-shrink: 0; /* Prevent footer from shrinking */
         }
         
         .footer-content {
@@ -205,50 +212,22 @@
             color: #90CAF9;
         }
         
-        /* App Store Button */
-        .app-store-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: #000000;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 1px solid #444;
-        }
-        
-        .app-store-button:hover {
-            opacity: 0.9;
-        }
-        
-        .app-store-button svg {
-            margin-right: 10px;
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-        }
-        
-        .app-store-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .app-store-text small {
-            font-size: 0.9rem;
-            font-weight: normal;
-            line-height: 1;
-        }
-        
-        .app-store-text span {
-            font-size: 1.5rem;
-            font-weight: bold;
-            line-height: 1.5;
-        }
-        
         /* Improved Responsive Design */
         @media (max-width: 991px) {
+            body {
+                padding-top: 0; /* Remove padding to ensure logo is visible */
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            
+            .main-content {
+                flex: 1 0 auto;
+                padding: 20px 0 70px; /* Add significant bottom padding */
+                overflow: visible; /* Allow content to be visible */
+                align-items: flex-start; /* Align content at the top */
+            }
+            
             .app-presentation {
                 flex-direction: column;
                 align-items: center;
@@ -260,6 +239,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin-top: 20px;
             }
             
             .app-info p {
@@ -269,33 +249,24 @@
             }
             
             .app-branding {
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 20px;
+                margin-bottom: 30px;
+                background-color: rgba(0, 0, 0, 0.7); /* Keep background for visibility */
+                width: 100%; /* Ensure full width */
+                justify-content: center; /* Center the logo and text */
             }
             
             .app-logo {
-                height: 50px;
+                height: 60px;
+                display: block; /* Explicitly display the logo */
             }
             
-            .app-presentation {
-                padding-top: 0;
-            }
-            
-            .main-content {
-                padding-bottom: 80px;
+            .app-screenshot {
+                max-width: 300px;
+                margin: 20px auto 100px; /* Much larger bottom margin on mobile */
             }
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                padding: 10px 0 60px;
-                min-height: auto;
-            }
-            
             .footer-content {
                 flex-direction: column;
                 gap: 15px;
@@ -311,9 +282,8 @@
                 width: 100%;
             }
             
-            .iphone-mockup {
-                width: min(260px, 65vw);
-                height: min(520px, 130vw);
+            .app-branding {
+                margin-top: 20px; /* Add margin to top */
             }
         }
         
@@ -323,90 +293,49 @@
             }
             
             .app-logo {
-                height: 36px;
+                height: 50px;
+                margin-right: 10px; /* Reduce margin */
+            }
+            
+            .main-content {
+                padding-top: 10px;
+                padding-bottom: 100px; /* Even more bottom padding on small screens */
+            }
+            
+            .app-branding {
+                margin-bottom: 25px;
+                padding: 8px; /* Smaller padding */
+            }
+            
+            .app-screenshot {
+                max-width: 280px;
             }
             
             .footer-links {
                 gap: 10px;
             }
             
-            .footer-links a {
+            .footer-links a, .copyright {
                 font-size: 0.85rem;
-            }
-            
-            .copyright {
-                font-size: 0.85rem;
-            }
-            
-            .app-store-button {
-                padding: 8px 16px;
-            }
-            
-            .app-store-text small {
-                font-size: 0.8rem;
-            }
-            
-            .app-store-text span {
-                font-size: 1.2rem;
-            }
-            
-            .iphone-mockup {
-                width: min(220px, 60vw);
-                height: min(440px, 120vw);
-                border-radius: 30px;
-                padding: 10px;
-            }
-            
-            .iphone-screen {
-                border-radius: 20px;
-            }
-            
-            .main-content {
-                padding-bottom: 40px;
             }
         }
         
-        /* iPhone 8 Plus and similar devices */
-        @media (max-width: 414px) {
-            .iphone-mockup {
-                width: min(200px, 55vw);
-                height: min(400px, 110vw);
-                border-radius: 25px;
-                padding: 8px;
-            }
-            
-            .iphone-screen {
-                border-radius: 18px;
-            }
-            
-            .main-content {
-                padding-bottom: 30px;
-            }
-        }
-        
-        /* Added extra small screen support */
         @media (max-width: 360px) {
             .app-info h1 {
                 font-size: 1.8rem;
             }
             
             .app-logo {
-                height: 32px;
-                margin-right: 10px;
+                height: 42px;
+                margin-right: 8px; /* Even smaller margin */
             }
             
-            .iphone-mockup {
-                width: min(180px, 50vw);
-                height: min(360px, 100vw);
+            .app-screenshot {
+                max-width: 240px;
             }
             
             .app-branding {
-                margin-bottom: 15px;
-            }
-            
-            .main-content {
-                min-height: auto;
-                padding-bottom: 20px;
+                padding: 6px; /* Smaller padding */
             }
         }
     </style>
@@ -416,17 +345,17 @@
     <div class="main-content">
         <div class="container">
             <div class="app-presentation">
-                <div class="app-branding">
-                    <img src="images/remyLogo.png" alt="Remy Logo" class="app-logo">
-                    <h1>Remy</h1>
-                </div>
                 <div class="app-info">
+                    <div class="app-branding">
+                        <img src="images/remyLogo.png" alt="Remy Logo" class="app-logo">
+                        <h1>Remy</h1>
+                    </div>
                     <div class="app-slogan">Stay organized, stay focused</div>
                     <p>
                         A simple reminder app to help you stay organized and focused. Create custom notifications, track tasks, and manage your time effectively.
                     </p>
                     <a href="https://apps.apple.com/az/app/remy-stay-notified/id6742569633" class="app-store-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 384 512" fill="white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 384 512" fill="white">
                             <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
                         </svg>
                         <div class="app-store-text">
@@ -436,11 +365,7 @@
                     </a>
                 </div>
                 <div class="app-image">
-                    <div class="iphone-mockup">
-                        <div class="iphone-screen">
-                            <img src="images/remy-screen-record.gif" alt="Remy App Demo" class="app-gif">
-                        </div>
-                    </div>
+                    <img src="images/remy-new-screen.jpeg" alt="Remy App Screenshot" class="app-screenshot">
                 </div>
             </div>
         </div>
